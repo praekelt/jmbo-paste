@@ -1,5 +1,9 @@
-from paste.script.templates import Template
+from paste.script.templates import Template, var
 
-class BuildoutTemplate(templates.Template):
-    _template_dir = 'templates/buildout'
-    summary = 'Base buildout.'
+class PanyaMinimalTemplate(Template):
+    _template_dir = 'templates/panya_minimal'
+    summary = 'Creates a buildout providing Django and the Panya base app only.'
+
+    vars = [
+        var('eggs', 'panya', default='panya'),
+    ]
