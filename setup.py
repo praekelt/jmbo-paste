@@ -14,9 +14,10 @@ setup(
         'setuptools',
         'PasteScript>=1.7',
     ],
+    include_package_data=True,
     entry_points = """
         [paste.paster_create_template]
-        buildout=panya_paste_templates.templates:BuildoutTemplate
+        panya_minimal=panya_paste_templates.templates:PanyaMinimalTemplate
     """,
     classifiers = [
         "Programming Language :: Python",
