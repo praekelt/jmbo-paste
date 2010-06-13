@@ -2,7 +2,8 @@
 parts = 
     django
 
-[production]
+[django]
 recipe = djangorecipe
 version = 1.2.1
-eggs = ${eggs}
+eggs = 
+    panya
