@@ -14,6 +14,10 @@ setup(
         'setuptools',
         'PasteScript>=1.7',
     ],
+    entry_points = """
+        [paste.paster_create_template]
+        buildout=panya_paste_templates.templates:BuildoutTemplate
+    """,
     classifiers = [
         "Programming Language :: Python",
         "License :: OSI Approved :: BSD License",
