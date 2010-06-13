@@ -1,0 +1,8 @@
+[buildout]
+parts = 
+    django
+
+[production]
+recipe = djangorecipe
+version = 1.2.1
+eggs = ${eggs}
