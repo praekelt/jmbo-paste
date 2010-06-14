@@ -1,4 +1,6 @@
 [buildout]
+find-links=https://github.com/praekelt/panya/tarball/master#egg=panya
+extensions=lovely.buildouthttp
 parts = 
     django
 
