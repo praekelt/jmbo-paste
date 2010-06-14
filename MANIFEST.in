@@ -1,4 +1,4 @@
 include AUTHORS
 include LICENSE
 include README.rst
-recursive-include panya_paste_templates/templates *
+recursive-include panya_paste/templates *
