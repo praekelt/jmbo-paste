@@ -1,0 +1,29 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='$project',
+    description='',
+    version='',
+    author='',
+    license='BSD',
+    url='',
+    packages = find_packages(),
+    dependency_links = [
+#for $app in $app_choices
+    #try
+        #if $app[2]
+        '$app[2]',
+        #end if
+    #except
+        #pass
+    #end try
+#end for
+    ],
+    install_requires = [
+#for $app in $app_choices
+    #if $getVar($app[0]) == 'y'
+        '$app[1]',
+    #end if
+#end for
+    ],
+)
