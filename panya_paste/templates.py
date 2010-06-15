@@ -1,9 +1,38 @@
+from paste.script import command
 from paste.script.templates import Template, var
 
-class PanyaMinimalTemplate(Template):
-    _template_dir = 'templates/panya_minimal'
-    summary = 'Creates a buildout providing Django and the Panya base app only.'
+APP_CHOICES = (
+    ('ckeditor','django-ckeditor'),
+    ('generate', 'django-generate', 'https://github.com/praekelt/django-generate/tarball/master#egg=django-generate'),
+    ('gizmo', 'django-gizmo', 'https://github.com/praekelt/django-gizmo/tarball/master#egg=django-gizmo'),
+    ('googlesearch', 'django-googlesearch', 'https://github.com/praekelt/django-googlesearch/tarball/master#egg=django-googlesearch'),
+    ('likes', 'django-likes', 'https://github.com/praekelt/django-likes/tarball/master#egg=django-likes'),
+    ('pagemenu', 'django-pagemenu', 'https://github.com/praekelt/django-pagemenu/tarball/master#egg=django-pagemenu'),
+    ('preferences', 'django-preferences'),
+    ('profile', 'django-profile', 'https://github.com/praekelt/django-profile/tarball/master#egg=django-profile'),
+    ('publisher', 'django-publisher', 'https://github.com/praekelt/django-publisher/tarball/master#egg=django-publisher'),
+    ('recaptcha', 'django-recaptcha', 'https://github.com/praekelt/django-recaptcha/tarball/master#egg=django-recaptcha'),
+    ('registration', 'django-registration'),
+    ('richcomments', 'django-richcomments', 'https://github.com/praekelt/django-richcomments/tarball/master#egg=django-richcomments'),
+    ('section', 'django-section'),
+    ('banner', 'panya-banner', 'https://github.com/praekelt/panya-banner/tarball/master#egg=panya-banner'),
+    ('calendar', 'panya-calendar', 'https://github.com/praekelt/panya-calendar/tarball/master#egg=panya-calendar'),
+    ('chart', 'panya-chart', 'https://github.com/praekelt/panya-chart/tarball/master#egg=panya-chart'),
+    ('competition', 'panya-competition', 'https://github.com/praekelt/panya-competition/tarball/master#egg=panya-competition'),
+    ('contact', 'panya-contact', 'https://github.com/praekelt/panya-contact/tarball/master#egg=panya-contact'),
+    ('event', 'panya-event', 'https://github.com/praekelt/panya-event/tarball/master#egg=panya-event'),
+    ('gallery', 'panya-gallery', 'https://github.com/praekelt/panya-gallery/tarball/master#egg=panya-gallery'),
+    ('music', 'panya-music', 'https://github.com/praekelt/panya-music/tarball/master#egg=panya-music'),
+    ('post', 'panya-post', 'https://github.com/praekelt/panya-post/tarball/master#egg=panya-post'),
+    ('show', 'panya-show', 'https://github.com/praekelt/panya-show/tarball/master#egg=panya-show'),
+)
 
-class PanyaDeployTemplate(Template):
-    _template_dir = 'templates/panya_deploy'
-    summary = 'Creates a buildout providing 3 Django instances (production, staging and qa), NGINX and FCGI control scripts, and a selection of Panya and Django apps.'
+class PanyaProjectTemplate(Template):
+    _template_dir = 'templates/panya_project'
+    summary = 'Creates a buildout providing a Django instance and Django project with selected Panya apps installed.'
+    use_cheetah = True
+
+    def pre(self, command, output_dir, vars):
+        vars['app_choices'] = APP_CHOICES
+        for choice in APP_CHOICES:
+            vars[choice[0]]=command.challenge('Install %s?: y/n' % choice[1], 'y', True)
