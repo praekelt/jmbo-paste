@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='panya-paste',
-    version='0.0.4',
+    version='0.0.6',
     description='Python Paste templates creating Panya buildout environments.',
     long_description = open('README.rst', 'r').read(),
     author='Praekelt Foundation',
@@ -11,13 +11,14 @@ setup(
     url='http://github.com/praekelt/panya-paste',
     packages = find_packages(),
     install_requires = [
+        'Cheetah',
+        'PasteScript',
         'setuptools',
-        'PasteScript>=1.7',
     ],
     include_package_data=True,
     entry_points = """
         [paste.paster_create_template]
-        panya_minimal=panya_paste.templates:PanyaMinimalTemplate
+        panya_project=panya_paste.templates:PanyaProjectTemplate
     """,
     classifiers = [
         "Programming Language :: Python",
