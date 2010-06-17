@@ -6,7 +6,11 @@ APP_CHOICES = (
     ('ckeditor','django-ckeditor'),
     ('generate', 'django-generate', ('https://github.com/praekelt/django-generate/tarball/master#egg=django-generate',)),
     ('gizmo', 'django-gizmo', ('https://github.com/praekelt/django-gizmo/tarball/master#egg=django-gizmo',)),
-    ('googlesearch', 'django-googlesearch', ('https://github.com/praekelt/django-googlesearch/tarball/master#egg=django-googlesearch',)),
+    ('googlesearch', 'django-googlesearch', (
+        'https://github.com/praekelt/django-googlesearch/tarball/master#egg=django-googlesearch',
+        'https://github.com/downloads/praekelt/eggs/django_googlesearch-0.0.2-py2.6.egg#egg=django-googlesearch',
+        )
+    ),
     ('likes', 'django-likes', ('https://github.com/praekelt/django-likes/tarball/master#egg=django-likes',)),
     ('pagemenu', 'django-pagemenu', ('https://github.com/praekelt/django-pagemenu/tarball/master#egg=django-pagemenu',)),
     ('preferences', 'django-preferences'),
@@ -25,7 +29,11 @@ APP_CHOICES = (
         'https://github.com/downloads/praekelt/eggs/panya_banner-0.0.1-py2.6.egg#egg=panya-banner',
         )
     ),
-    ('calendar', 'panya-calendar', ('https://github.com/praekelt/panya-calendar/tarball/master#egg=panya-calendar',)),
+    ('calendar', 'panya-calendar', (
+        'https://github.com/praekelt/panya-calendar/tarball/master#egg=panya-calendar',
+        'https://github.com/downloads/praekelt/eggs/panya_calendar-0.0.1-py2.6.egg#egg=panya-calendar',
+        )
+    ),
     ('chart', 'panya-chart', (
         'https://github.com/praekelt/panya-chart/tarball/master#egg=panya-chart',
         'https://github.com/downloads/praekelt/eggs/panya_chart-0.0.1-py2.6.egg#egg=panya-chart',
