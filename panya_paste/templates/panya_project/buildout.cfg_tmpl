@@ -1,9 +1,12 @@
 [buildout]
+find-links=
+    https://github.com/praekelt/panya/tarball/master#egg=panya
 develop=\${buildout:directory}/src/$project/setup.py
 extensions=lovely.buildouthttp
 parts=
     django
 eggs=
+    panya
     $project
 
 [django]
