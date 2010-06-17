@@ -10,13 +10,15 @@ setup(
     packages = find_packages(),
     dependency_links = [
 #for $app in $app_choices
-    #try
-        #if $app[2]
+    #if $getVar($app[0]) == 'y'
+        #try
+            #if $app[2]
         '$app[2]',
-        #end if
-    #except
-        #pass
-    #end try
+            #end if
+        #except
+            #pass
+        #end try
+    #end if
 #end for
     ],
     install_requires = [
