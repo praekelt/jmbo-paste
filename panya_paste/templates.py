@@ -1,5 +1,6 @@
 from paste.script import command
 from paste.script.templates import Template, var
+from random import choice
 
 APP_CHOICES = (
     ('ckeditor','django-ckeditor'),
@@ -31,6 +32,13 @@ class PanyaProjectTemplate(Template):
     _template_dir = 'templates/panya_project'
     summary = 'Creates a buildout providing a Django instance and Django project with selected Panya apps installed.'
     use_cheetah = True
+
+    vars = [
+        var('secret_key', 'The secret key for hashing algorithms',
+            default=''.join(
+                [choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
+            ) for i in range(50)])),
+    ]
 
     def pre(self, command, output_dir, vars):
         vars['app_choices'] = APP_CHOICES
