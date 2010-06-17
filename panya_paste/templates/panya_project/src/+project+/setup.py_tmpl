@@ -13,7 +13,9 @@ setup(
     #if $getVar($app[0]) == 'y'
         #try
             #if $app[2]
-        '$app[2]',
+                #for $link in $app[2]
+            '$link',
+                #end for
             #end if
         #except
             #pass

@@ -4,28 +4,40 @@ from random import choice
 
 APP_CHOICES = (
     ('ckeditor','django-ckeditor'),
-    ('generate', 'django-generate', 'https://github.com/praekelt/django-generate/tarball/master#egg=django-generate'),
-    ('gizmo', 'django-gizmo', 'https://github.com/praekelt/django-gizmo/tarball/master#egg=django-gizmo'),
-    ('googlesearch', 'django-googlesearch', 'https://github.com/praekelt/django-googlesearch/tarball/master#egg=django-googlesearch'),
-    ('likes', 'django-likes', 'https://github.com/praekelt/django-likes/tarball/master#egg=django-likes'),
-    ('pagemenu', 'django-pagemenu', 'https://github.com/praekelt/django-pagemenu/tarball/master#egg=django-pagemenu'),
+    ('generate', 'django-generate', ('https://github.com/praekelt/django-generate/tarball/master#egg=django-generate',)),
+    ('gizmo', 'django-gizmo', ('https://github.com/praekelt/django-gizmo/tarball/master#egg=django-gizmo',)),
+    ('googlesearch', 'django-googlesearch', ('https://github.com/praekelt/django-googlesearch/tarball/master#egg=django-googlesearch',)),
+    ('likes', 'django-likes', ('https://github.com/praekelt/django-likes/tarball/master#egg=django-likes',)),
+    ('pagemenu', 'django-pagemenu', ('https://github.com/praekelt/django-pagemenu/tarball/master#egg=django-pagemenu',)),
     ('preferences', 'django-preferences'),
-    ('profile', 'django-profile', 'https://github.com/praekelt/django-profile/tarball/master#egg=django-profile'),
-    ('publisher', 'django-publisher', 'https://github.com/praekelt/django-publisher/tarball/master#egg=django-publisher'),
-    ('recaptcha', 'django-recaptcha', 'https://github.com/praekelt/django-recaptcha/tarball/master#egg=django-recaptcha'),
+    ('profile', 'django-profile', ('https://github.com/praekelt/django-profile/tarball/master#egg=django-profile',)),
+    ('publisher', 'django-publisher', (
+        'https://github.com/praekelt/django-publisher/tarball/master#egg=django-publisher',
+        'https://github.com/downloads/praekelt/eggs/django_publisher-0.0.1-py2.6.egg#egg=django-publisher',
+        )
+    ),
+    ('recaptcha', 'django-recaptcha',),
     ('registration', 'django-registration'),
-    ('richcomments', 'django-richcomments', 'https://github.com/praekelt/django-richcomments/tarball/master#egg=django-richcomments'),
+    ('richcomments', 'django-richcomments', ('https://github.com/praekelt/django-richcomments/tarball/master#egg=django-richcomments',)),
     ('section', 'django-section'),
-    ('banner', 'panya-banner', 'https://github.com/praekelt/panya-banner/tarball/master#egg=panya-banner'),
-    ('calendar', 'panya-calendar', 'https://github.com/praekelt/panya-calendar/tarball/master#egg=panya-calendar'),
-    ('chart', 'panya-chart', 'https://github.com/praekelt/panya-chart/tarball/master#egg=panya-chart'),
-    ('competition', 'panya-competition', 'https://github.com/praekelt/panya-competition/tarball/master#egg=panya-competition'),
-    ('contact', 'panya-contact', 'https://github.com/praekelt/panya-contact/tarball/master#egg=panya-contact'),
-    ('event', 'panya-event', 'https://github.com/praekelt/panya-event/tarball/master#egg=panya-event'),
-    ('gallery', 'panya-gallery', 'https://github.com/praekelt/panya-gallery/tarball/master#egg=panya-gallery'),
-    ('music', 'panya-music', 'https://github.com/praekelt/panya-music/tarball/master#egg=panya-music'),
-    ('post', 'panya-post', 'https://github.com/praekelt/panya-post/tarball/master#egg=panya-post'),
-    ('show', 'panya-show', 'https://github.com/praekelt/panya-show/tarball/master#egg=panya-show'),
+    ('banner', 'panya-banner', (
+        'https://github.com/praekelt/panya-banner/tarball/master#egg=panya-banner',
+        'https://github.com/downloads/praekelt/eggs/panya_banner-0.0.1-py2.6.egg#egg=panya-banner',
+        )
+    ),
+    ('calendar', 'panya-calendar', ('https://github.com/praekelt/panya-calendar/tarball/master#egg=panya-calendar',)),
+    ('chart', 'panya-chart', (
+        'https://github.com/praekelt/panya-chart/tarball/master#egg=panya-chart',
+        'https://github.com/downloads/praekelt/eggs/panya_chart-0.0.1-py2.6.egg#egg=panya-chart',
+        )
+    ),
+    ('competition', 'panya-competition', ('https://github.com/praekelt/panya-competition/tarball/master#egg=panya-competition',)),
+    ('contact', 'panya-contact', ('https://github.com/praekelt/panya-contact/tarball/master#egg=panya-contact',)),
+    ('event', 'panya-event', ('https://github.com/praekelt/panya-event/tarball/master#egg=panya-event',)),
+    ('gallery', 'panya-gallery', ('https://github.com/praekelt/panya-gallery/tarball/master#egg=panya-gallery',)),
+    ('music', 'panya-music', ('https://github.com/praekelt/panya-music/tarball/master#egg=panya-music',)),
+    ('post', 'panya-post', ('https://github.com/praekelt/panya-post/tarball/master#egg=panya-post',)),
+    ('show', 'panya-show', ('https://github.com/praekelt/panya-show/tarball/master#egg=panya-show',)),
 )
 
 class PanyaProjectTemplate(Template):
