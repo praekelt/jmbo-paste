@@ -21,7 +21,7 @@ APP_CHOICES = (
         )
     ),
     ('recaptcha', 'django-recaptcha',),
-    ('registration', 'django-registration'),
+    ('registration', 'django-registration', ('https://github.com/downloads/praekelt/eggs/django_registration-0.8_alpha_1-py2.6.egg#egg=django-registration',)),
     ('richcomments', 'django-richcomments', ('https://github.com/praekelt/django-richcomments/tarball/master#egg=django-richcomments',)),
     ('section', 'django-section'),
     ('banner', 'panya-banner', (
