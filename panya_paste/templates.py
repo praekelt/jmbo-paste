@@ -29,16 +29,12 @@ APP_CHOICES = (
         'https://github.com/downloads/praekelt/eggs/panya_banner-0.0.1-py2.6.egg#egg=panya-banner',
         )
     ),
-    ('calendar', 'panya-calendar', (
+    ('cal', 'panya-calendar', (
         'https://github.com/praekelt/panya-calendar/tarball/master#egg=panya-calendar',
         'https://github.com/downloads/praekelt/eggs/panya_calendar-0.0.1-py2.6.egg#egg=panya-calendar',
         )
     ),
-    ('chart', 'panya-chart', (
-        'https://github.com/praekelt/panya-chart/tarball/master#egg=panya-chart',
-        'https://github.com/downloads/praekelt/eggs/panya_chart-0.0.1-py2.6.egg#egg=panya-chart',
-        )
-    ),
+    ('chart', 'panya-chart', ('https://github.com/praekelt/panya-chart/tarball/0.0.1#egg=panya-chart',)),
     ('competition', 'panya-competition', ('https://github.com/praekelt/panya-competition/tarball/master#egg=panya-competition',)),
     ('contact', 'panya-contact', ('https://github.com/praekelt/panya-contact/tarball/master#egg=panya-contact',)),
     ('event', 'panya-event', ('https://github.com/praekelt/panya-event/tarball/master#egg=panya-event',)),
