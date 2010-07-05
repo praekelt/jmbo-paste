@@ -20,7 +20,7 @@ eggs = \${buildout:eggs}
 
 [media-links]
 recipe = svetlyak40wt.recipe.symlinks == 0.1.3
-path = \${buildout:qa-media-root}
+path = \${buildout:directory}
 files =
     \${buildout:parts-directory}/django/django/contrib/admin/media admin
-    \${buildout:parts-directory}/$project/$project/media/$project
+    \${buildout:directory}/src/$project/$project/media/$project
