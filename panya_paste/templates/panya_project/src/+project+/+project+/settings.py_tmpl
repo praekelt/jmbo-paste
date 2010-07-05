@@ -96,3 +96,8 @@ INSTALLED_APPS = (
     #end if
 #end for
 )
+
+#if $profile == 'y'
+# The site-specific user profile model used by this site.
+AUTH_PROFILE_MODULE = '${project}.Profile'
+#end if
