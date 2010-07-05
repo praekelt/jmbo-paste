@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'panya',
     'category',
     'photologue',
+    'tagging',
 
     # elective apps
 #for $app in $app_choices
