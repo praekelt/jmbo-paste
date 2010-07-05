@@ -95,6 +95,9 @@ INSTALLED_APPS = (
     '$app[0]',
     #end if
 #end for
+#if $likes == 'y'
+    'secretballot'
+#end if
 )
 
 #if $profile == 'y'
