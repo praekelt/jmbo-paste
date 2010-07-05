@@ -101,3 +101,8 @@ INSTALLED_APPS = (
 # The site-specific user profile model used by this site.
 AUTH_PROFILE_MODULE = '${project}.Profile'
 #end if
+
+#if $ckeditor == 'y'
+# URL prefix for ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash:
+CKEDITOR_MEDIA_PREFIX = "/media/ckeditor/"
+#end if
