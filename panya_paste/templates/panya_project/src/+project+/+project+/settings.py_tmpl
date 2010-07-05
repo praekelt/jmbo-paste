@@ -39,7 +39,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = '%s/media/production/' % BUILDOUT_PATH
+MEDIA_ROOT = '%s/media/' % BUILDOUT_PATH
 
 
 
