@@ -1,0 +1,7 @@
+from django.db import models
+
+#if $profile == 'y'
+class Profile(models.Model):
+    # add your profile model here
+    pass
+#end if
