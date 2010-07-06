@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # Example:
     # url(r'^$', 'myapp.views.myview', name='view_name'),
     
-    #if $preferences == 'y'
+    #if $getVar('django-preferences', 'n') == 'y'
     # django-preferences urls
     (r'^admin/', include('preferences.urls')),
     #end if
@@ -22,12 +22,13 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     
     # app url includes
-    #if $competition == 'y'
-    (r'^competition/', include('competition.urls')),
-    #end if
-    #if $event == 'y'
-    (r'^event/', include('event.urls')),
-    #end if
+    #for $app in $app_config
+        #if $getVar($app) == 'y'
+            #if 'urlconf_additions' in $app_config[$app].keys
+                #include $app_config[$app]['urlconf_additions']
+            #end if
+        #end if
+    #end for
 )
 
 if settings.DEBUG:
