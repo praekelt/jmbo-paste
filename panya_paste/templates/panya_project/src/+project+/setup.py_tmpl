@@ -9,24 +9,20 @@ setup(
     url='',
     packages = find_packages(),
     dependency_links = [
-#for $app in $app_choices
-    #if $getVar($app[0]) == 'y'
-        #try
-            #if $app[2]
-                #for $link in $app[2]
-            '$link',
-                #end for
-            #end if
-        #except
-            #pass
-        #end try
+#for $app in $app_config
+    #if $getVar($app) == 'y'
+        #if 'find_links' in $app_config[$app].keys
+            #for $link in $app_config[$app]['find_links']
+        '$link',
+            #end for
+        #end if
     #end if
 #end for
     ],
     install_requires = [
-#for $app in $app_choices
-    #if $getVar($app[0]) == 'y'
-        '$app[1]',
+#for $app in $app_config
+    #if $getVar($app) == 'y'
+        '$app',
     #end if
 #end for
     ],
