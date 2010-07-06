@@ -56,6 +56,7 @@ APP_CONFIG = {
         'django-richcomments': {
             'module_name': 'richcomments',
             'find_links': ('https://github.com/praekelt/django-richcomments/tarball/master#egg=django-richcomments',),
+            'urlconf_additions': '%s/config/richcomments_urlconf_additions.py' % SCRIPT_PATH,
         },
         'django-section': {
             'module_name': 'section',
