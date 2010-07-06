@@ -57,6 +57,18 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$secret_key'
 
+# A tuple of callables that are used to populate the context in RequestContext. 
+# These callables take a request object as their argument and return a 
+# dictionary of items to be merged into the context.
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+)
+
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
@@ -85,28 +97,29 @@ INSTALLED_APPS = (
     '$project',
 
     # panya required apps
-    'panya',
     'category',
     'photologue',
     'tagging',
 
     # elective apps
-#for $app in $app_choices
-    #if $getVar($app[0]) == 'y'
-    '$app[0]',
+#for $app in $app_config
+    #if $getVar($app) == 'y'
+        #if 'module_name' in $app_config[$app].keys
+    '$app_config[$app]['module_name']',
+        #end if
     #end if
 #end for
-#if $likes == 'y'
+#if $getVar('django-likes', 'n') == 'y'
     'secretballot'
 #end if
 )
 
-#if $profile == 'y'
+#if $getVar('django-profile', 'n') == 'y'
 # The site-specific user profile model used by this site.
 AUTH_PROFILE_MODULE = '${project}.Profile'
 #end if
 
-#if $ckeditor == 'y'
+#if $getVar('django-ckeditor', 'n') == 'y'
 # URL prefix for ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash.
 CKEDITOR_MEDIA_PREFIX = "/media/ckeditor/"
 #end if

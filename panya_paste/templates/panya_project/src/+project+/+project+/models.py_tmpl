@@ -1,7 +1,9 @@
 from django.db import models
 
-#if $profile == 'y'
-class Profile(models.Model):
-    # add your profile model here
-    pass
-#end if
+#for $app in $app_config
+    #if $getVar($app) == 'y'
+        #if 'model_additions' in $app_config[$app].keys
+            #include $app_config[$app]['model_additions']
+        #end if
+    #end if
+#end for
