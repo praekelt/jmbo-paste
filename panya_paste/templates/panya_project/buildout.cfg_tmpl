@@ -19,8 +19,17 @@ settings = settings
 eggs = \${buildout:eggs}
 
 [media-links]
-recipe = svetlyak40wt.recipe.symlinks == 0.1.3
+recipe = svetlyak40wt.recipe.symlinks
 path = \${buildout:directory}/media
 files =
     \${buildout:parts-directory}/django/django/contrib/admin/media admin
     \${buildout:directory}/src/$project/$project/media/$project
+#for $app in $app_config
+    #if $getVar($app) == 'y'
+        #if 'buildout_media_links' in $app_config[$app].keys
+            #for $link in $app_config[$app]['buildout_media_links']
+    $link
+            #end for
+        #end if
+    #end if
+#end for

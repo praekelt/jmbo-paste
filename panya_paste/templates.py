@@ -30,6 +30,7 @@ APP_CONFIG = {
             'find_links': ('https://github.com/praekelt/django-likes/tarball/master#egg=django-likes',),
             'middleware_classes': ('likes.middleware.SecretBallotUserIpUseragentMiddleware',),
             'urlconf_additions': '%s/config/likes_urlconf_additions.py' % SCRIPT_PATH,
+            'buildout_media_links': ('django-likes://likes/media/likes',),
         },
         'django-preferences': {
             'module_name': 'preferences'
