@@ -9,6 +9,7 @@ SCRIPT_PATH =  path.abspath(path.dirname(__file__))
 APP_CONFIG = {
         'django-ckeditor': {
             'module_name': 'ckeditor',
+            'urlconf_additions': '%s/config/ckeditor_urlconf_additions.py' % SCRIPT_PATH,
         },
         'django-generate': {
             'module_name': 'generate',
