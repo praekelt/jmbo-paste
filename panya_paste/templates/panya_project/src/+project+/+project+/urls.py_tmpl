@@ -20,6 +20,14 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    
+    # app url includes
+    #if $competition == 'y'
+    (r'^competition/', include('competition.urls')),
+    #end if
+    #if $event == 'y'
+    (r'^event/', include('event.urls')),
+    #end if
 )
 
 if settings.DEBUG:
