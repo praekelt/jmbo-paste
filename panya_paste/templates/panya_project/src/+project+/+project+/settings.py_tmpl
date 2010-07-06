@@ -57,6 +57,23 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '$secret_key'
 
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+#for $app in $app_config
+    #if $getVar($app) == 'y'
+        #if 'middleware_classes' in $app_config[$app].keys
+            #for $middleware in $app_config[$app]['middleware_classes']
+    '$middleware',
+            #end for
+        #end if
+    #end if
+#end for
+)
+
 # A tuple of callables that are used to populate the context in RequestContext. 
 # These callables take a request object as their argument and return a 
 # dictionary of items to be merged into the context.

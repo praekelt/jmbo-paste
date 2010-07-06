@@ -28,6 +28,8 @@ APP_CONFIG = {
         'django-likes': {
             'module_name': 'likes',
             'find_links': ('https://github.com/praekelt/django-likes/tarball/master#egg=django-likes',),
+            'middleware_classes': ('likes.middleware.SecretBallotUserIpUseragentMiddleware',),
+            'urlconf_additions': '%s/config/likes_urlconf_additions.py' % SCRIPT_PATH,
         },
         'django-preferences': {
             'module_name': 'preferences'
@@ -84,6 +86,7 @@ APP_CONFIG = {
         'panya-competition': {
             'module_name': 'competition',
             'find_links': ('https://github.com/praekelt/panya-competition/tarball/master#egg=panya-competition',),
+            'urlconf_additions': '%s/config/competition_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-contact': {
             'module_name': 'contact',
@@ -92,13 +95,14 @@ APP_CONFIG = {
         'panya-event': {
             'module_name': 'event', 
             'find_links': ('https://github.com/praekelt/panya-event/tarball/master#egg=panya-event',),
+            'urlconf_additions': '%s/config/event_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-gallery': {
             'module_name': 'gallery',
             'find_links': ('https://github.com/praekelt/panya-gallery/tarball/master#egg=panya-gallery',),
         },
         'panya-music': {
-            'module_name': 'panya-music', 
+            'module_name': 'music', 
             'find_links': ('https://github.com/praekelt/panya-music/tarball/master#egg=panya-music',),
         },
         'panya-post': {
