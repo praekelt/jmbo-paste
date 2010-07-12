@@ -77,10 +77,7 @@ APP_CONFIG = {
         },
         'panya-calendar': {
             'module_name': 'cal', 
-            'find_links': (
-                'https://github.com/praekelt/panya-calendar/tarball/master#egg=panya-calendar',
-                'https://github.com/downloads/praekelt/eggs/panya_calendar-0.0.1-py2.6.egg#egg=panya-calendar',
-            ),
+            'find_links': ('https://github.com/praekelt/panya-calendar/tarball/0.0.1#egg=panya-calendar',),
         },
         'panya-chart': {
             'module_name': 'chart', 
@@ -114,7 +111,8 @@ APP_CONFIG = {
         },
         'panya-show': {
             'module_name': 'show', 
-            'find_links': ('https://github.com/praekelt/panya-show/tarball/master#egg=panya-show',),
+            'find_links': ('https://github.com/praekelt/panya-show/tarball/0.0.3#egg=panya-show',),
+            'urlconf_additions': '%s/config/show_urlconf_additions.py' % SCRIPT_PATH,
         },
     }
 
