@@ -139,3 +139,8 @@ AUTH_PROFILE_MODULE = '${project}.Profile'
 # URL prefix for ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash.
 CKEDITOR_MEDIA_PREFIX = "/media/ckeditor/"
 #end if
+
+#if $getVar('django-gizmo', 'n') == 'y'
+# Module containing gizmo configuration
+ROOT_GIZMOCONF = "${project}.gizmos"
+#end if
