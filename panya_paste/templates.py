@@ -111,7 +111,7 @@ APP_CONFIG = {
         },
         'panya-show': {
             'module_name': 'show', 
-            'find_links': ('https://github.com/praekelt/panya-show/tarball/0.0.3#egg=panya-show',),
+            'find_links': ('https://github.com/praekelt/panya-show/tarball/0.0.5#egg=panya-show',),
             'urlconf_additions': '%s/config/show_urlconf_additions.py' % SCRIPT_PATH,
         },
     }
