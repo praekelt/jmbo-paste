@@ -84,6 +84,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.core.context_processors.request",
+#for $app in $app_config
+    #if $getVar($app) == 'y'
+        #if 'template_context_processor_additions' in $app_config[$app].keys
+            #for $template_context_processor in $app_config[$app]['template_context_processor_additions']
+    '$template_context_processor',
+            #end for
+        #end if
+    #end if
+#end for
 )
 
 TEMPLATE_LOADERS = (
