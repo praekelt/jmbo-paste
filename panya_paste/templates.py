@@ -87,7 +87,7 @@ APP_CONFIG = {
         },
         'panya-contact': {
             'module_name': 'contact',
-            'find_links': ('https://github.com/praekelt/panya-contact/tarball/0.0.3#egg=panya-contact',),
+            'find_links': ('https://github.com/praekelt/panya-contact/tarball/0.0.4#egg=panya-contact',),
             'urlconf_additions': '%s/config/contact_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-event': {
