@@ -21,10 +21,8 @@ APP_CONFIG = {
         },
         'django-googlesearch': {
             'module_name': 'googlesearch',
-            'find_links': (
-                'https://github.com/praekelt/django-googlesearch/tarball/master#egg=django-googlesearch',
-                'https://github.com/downloads/praekelt/eggs/django_googlesearch-0.0.2-py2.6.egg#egg=django-googlesearch',
-            ),
+            'find_links': ('https://github.com/praekelt/django-googlesearch/tarball/0.0.3#egg=django-googlesearch',),
+            'urlconf_additions': '%s/config/googlesearch_urlconf_additions.py' % SCRIPT_PATH,
         },
         'django-likes': {
             'module_name': 'likes',
@@ -89,7 +87,8 @@ APP_CONFIG = {
         },
         'panya-contact': {
             'module_name': 'contact',
-            'find_links': ('https://github.com/praekelt/panya-contact/tarball/master#egg=panya-contact',),
+            'find_links': ('https://github.com/praekelt/panya-contact/tarball/0.0.3#egg=panya-contact',),
+            'urlconf_additions': '%s/config/contact_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-event': {
             'module_name': 'event', 
@@ -133,4 +132,7 @@ class PanyaProjectTemplate(Template):
         app_keys = APP_CONFIG.keys()
         app_keys.sort()
         for key in app_keys:
-            vars[key]=command.challenge('Install %s?: y/n' % key, 'y', True)
+            vars[key] = command.challenge('Install %s?: y/n' % key, 'y', True)
+            if key == 'django-recaptcha' and vars[key] == 'y':
+                vars['app_config']['django-recaptcha']['public_key'] = command.challenge('Enter your Recaptcha Public Key: ', '', True)
+                vars['app_config']['django-recaptcha']['private_key'] = command.challenge('Enter your Recaptcha Private Key: ', '', True)
