@@ -13,11 +13,11 @@ APP_CONFIG = {
         },
         'django-generate': {
             'module_name': 'generate',
-            'find_links': ('https://github.com/praekelt/django-generate/tarball/master#egg=django-generate',),
+            'find_links': ('https://github.com/praekelt/django-generate/tarball/0.0.1#egg=django-generate',),
         },
         'django-gizmo': {
             'module_name': 'gizmo', 
-            'find_links': ('https://github.com/praekelt/django-gizmo/tarball/master#egg=django-gizmo',),
+            'find_links': ('https://github.com/praekelt/django-gizmo/tarball/0.0.1#egg=django-gizmo',),
         },
         'django-googlesearch': {
             'module_name': 'googlesearch',
@@ -26,7 +26,7 @@ APP_CONFIG = {
         },
         'django-likes': {
             'module_name': 'likes',
-            'find_links': ('https://github.com/praekelt/django-likes/tarball/master#egg=django-likes',),
+            'find_links': ('https://github.com/praekelt/django-likes/tarball/0.0.1#egg=django-likes',),
             'middleware_classes': ('likes.middleware.SecretBallotUserIpUseragentMiddleware',),
             'urlconf_additions': '%s/config/likes_urlconf_additions.py' % SCRIPT_PATH,
             'buildout_media_links': ('django-likes://likes/media/likes',),
@@ -37,15 +37,12 @@ APP_CONFIG = {
         },
         'django-profile': { 
             'module_name': 'profile', 
-            'find_links': ('https://github.com/praekelt/django-profile/tarball/0.0.1#egg=django-profile',),
+            'find_links': ('https://github.com/praekelt/django-profile/tarball/0.0.2#egg=django-profile',),
             'model_additions': '%s/config/profile_model_additions.py' % SCRIPT_PATH,
         },
         'django-publisher': {
             'module_name': 'publisher',
-            'find_links': (
-                'https://github.com/praekelt/django-publisher/tarball/master#egg=django-publisher',
-                'https://github.com/downloads/praekelt/eggs/django_publisher-0.0.1-py2.6.egg#egg=django-publisher',
-            ),
+            'find_links': ('https://github.com/praekelt/django-publisher/tarball/0.0.1#egg=django-publisher',),
         },
         'django-recaptcha': {
             'module_name': 'captcha',
@@ -56,7 +53,7 @@ APP_CONFIG = {
         },
         'django-richcomments': {
             'module_name': 'richcomments',
-            'find_links': ('https://github.com/praekelt/django-richcomments/tarball/master#egg=django-richcomments',),
+            'find_links': ('https://github.com/praekelt/django-richcomments/tarball/0.0.1#egg=django-richcomments',),
             'urlconf_additions': '%s/config/richcomments_urlconf_additions.py' % SCRIPT_PATH,
             'buildout_media_links': ('django-richcomments://richcomments/media/richcomments',),
         },
@@ -65,7 +62,7 @@ APP_CONFIG = {
         },
         'panya': {
             'module_name': 'panya',
-            'find_links': ('https://github.com/praekelt/panya/tarball/0.0.4#egg=panya',),
+            'find_links': ('https://github.com/praekelt/panya/tarball/0.0.5#egg=panya',),
             'urlconf_additions': '%s/config/panya_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-banner': {
@@ -78,7 +75,7 @@ APP_CONFIG = {
         },
         'panya-chart': {
             'module_name': 'chart', 
-            'find_links': ('https://github.com/praekelt/panya-chart/tarball/0.0.2#egg=panya-chart',),
+            'find_links': ('https://github.com/praekelt/panya-chart/tarball/0.0.3#egg=panya-chart',),
             'urlconf_additions': '%s/config/chart_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-competition': {
@@ -93,22 +90,22 @@ APP_CONFIG = {
         },
         'panya-event': {
             'module_name': 'event', 
-            'find_links': ('https://github.com/praekelt/panya-event/tarball/master#egg=panya-event',),
+            'find_links': ('https://github.com/praekelt/panya-event/tarball/0.0.3#egg=panya-event',),
             'urlconf_additions': '%s/config/event_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-gallery': {
             'module_name': 'gallery',
-            'find_links': ('https://github.com/praekelt/panya-gallery/tarball/master#egg=panya-gallery',),
+            'find_links': ('https://github.com/praekelt/panya-gallery/tarball/0.0.1#egg=panya-gallery',),
             'urlconf_additions': '%s/config/gallery_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-music': {
             'module_name': 'music', 
-            'find_links': ('https://github.com/praekelt/panya-music/tarball/0.0.2#egg=panya-music',),
+            'find_links': ('https://github.com/praekelt/panya-music/tarball/0.0.3#egg=panya-music',),
             'urlconf_additions': '%s/config/music_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-post': {
             'module_name': 'post', 
-            'find_links': ('https://github.com/praekelt/panya-post/tarball/master#egg=panya-post',),
+            'find_links': ('https://github.com/praekelt/panya-post/tarball/0.0.1#egg=panya-post',),
         },
         'panya-show': {
             'module_name': 'show', 
