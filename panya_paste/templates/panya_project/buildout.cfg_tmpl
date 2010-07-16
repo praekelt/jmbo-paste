@@ -4,19 +4,72 @@ find-links=
 develop=\${buildout:directory}/src/$project/setup.py
 extensions=lovely.buildouthttp
 parts=
-    django
+    $project
+    ${project}-staging
+    ${project}-fcgi
+    ${project}-staging-fcgi
+    ${project}-nginx
+    ${project}-staging-nginx
     media-links
 eggs=
+    flup
     panya
     $project
 
-[django]
+# Django instances
+[$project]
 recipe = djangorecipe
 version = 1.2.1
 project = $project
 projectegg = $project
 settings = settings
 eggs = \${buildout:eggs}
+
+[${project}-staging]
+recipe = djangorecipe
+version = 1.2.1
+project = $project
+projectegg = $project
+settings = settings_staging
+eggs = \${buildout:eggs}
+
+# FCGI control scripts
+[${project}-fcgi]
+recipe = collective.recipe.template
+input = buildout_templates/fcgi.in
+output = \${buildout:directory}/fcgi/${project}.fcgi
+control-script = ${project}
+host = 127.0.0.1
+port = 7001
+
+[${project}-staging-fcgi]
+recipe = collective.recipe.template
+input = buildout_templates/fcgi.in
+output = \${buildout:directory}/fcgi/${project}-staging.fcgi
+control-script = ${project}-staging
+host = 127.0.0.1
+port = 7002
+
+# Nginx configuration files
+[${project}-nginx]
+recipe = collective.recipe.template
+input = buildout_templates/nginx.conf.in
+output = \${buildout:directory}/nginx/${project}.conf
+server-name = $hostname
+port = 80
+fcgi-host = \${${project}-fcgi:host}
+fcgi-port = \${${project}-fcgi:port}
+media-root = \${buildout:directory}/media
+
+[${project}-staging-nginx]
+recipe = collective.recipe.template
+input = buildout_templates/nginx.conf.in
+output = \${buildout:directory}/nginx/${project}-staging.conf
+server-name = $hostname_staging
+port = 80
+fcgi-host = \${${project}-staging-fcgi:host}
+fcgi-port = \${${project}-staging-fcgi:port}
+media-root = \${buildout:directory}/media
 
 [media-links]
 recipe = svetlyak40wt.recipe.symlinks
