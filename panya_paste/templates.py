@@ -37,7 +37,7 @@ APP_CONFIG = {
         },
         'django-profile': { 
             'module_name': 'profile', 
-            'find_links': ('https://github.com/praekelt/django-profile/tarball/master#egg=django-profile',),
+            'find_links': ('https://github.com/praekelt/django-profile/tarball/0.0.1#egg=django-profile',),
             'model_additions': '%s/config/profile_model_additions.py' % SCRIPT_PATH,
         },
         'django-publisher': {
@@ -58,13 +58,14 @@ APP_CONFIG = {
             'module_name': 'richcomments',
             'find_links': ('https://github.com/praekelt/django-richcomments/tarball/master#egg=django-richcomments',),
             'urlconf_additions': '%s/config/richcomments_urlconf_additions.py' % SCRIPT_PATH,
+            'buildout_media_links': ('django-richcomments://richcomments/media/richcomments',),
         },
         'django-section': {
             'module_name': 'section',
         },
         'panya': {
             'module_name': 'panya',
-            'find_links': ('https://github.com/praekelt/panya/tarball/master#egg=panya',),
+            'find_links': ('https://github.com/praekelt/panya/tarball/0.0.4#egg=panya',),
             'urlconf_additions': '%s/config/panya_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-banner': {
@@ -82,7 +83,7 @@ APP_CONFIG = {
         },
         'panya-competition': {
             'module_name': 'competition',
-            'find_links': ('https://github.com/praekelt/panya-competition/tarball/master#egg=panya-competition',),
+            'find_links': ('https://github.com/praekelt/panya-competition/tarball/0.0.3#egg=panya-competition',),
             'urlconf_additions': '%s/config/competition_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-contact': {
@@ -98,6 +99,7 @@ APP_CONFIG = {
         'panya-gallery': {
             'module_name': 'gallery',
             'find_links': ('https://github.com/praekelt/panya-gallery/tarball/master#egg=panya-gallery',),
+            'urlconf_additions': '%s/config/gallery_urlconf_additions.py' % SCRIPT_PATH,
         },
         'panya-music': {
             'module_name': 'music', 
