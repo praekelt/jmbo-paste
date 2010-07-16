@@ -124,6 +124,8 @@ class PanyaProjectTemplate(Template):
             default=''.join(
                 [choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
             ) for i in range(50)])),
+        var('hostname', 'Hostname for the primary instance', default='localhost'),
+        var('hostname_staging', 'Hostname for the staging instance', default='staging.localhost'),
     ]
 
     def pre(self, command, output_dir, vars):
