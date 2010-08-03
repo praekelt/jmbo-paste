@@ -75,7 +75,7 @@ media-root = \${buildout:directory}/media
 recipe = svetlyak40wt.recipe.symlinks
 path = \${buildout:directory}/media
 files =
-    \${buildout:parts-directory}/django/django/contrib/admin/media admin
+    \${buildout:parts-directory}/$project/django/contrib/admin/media admin
     \${buildout:directory}/src/$project/$project/media/$project
 #for $app in $app_config
     #if $getVar($app) == 'y'
