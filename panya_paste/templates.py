@@ -10,6 +10,7 @@ APP_CONFIG = {
         'django-ckeditor': {
             'module_name': 'ckeditor',
             'urlconf_additions': '%s/config/ckeditor_urlconf_additions.py' % SCRIPT_PATH,
+            'buildout_media_links': ('django-ckeditor://ckeditor/media/ckeditor',),
         },
         'django-generate': {
             'module_name': 'generate',
@@ -21,7 +22,7 @@ APP_CONFIG = {
         },
         'django-googlesearch': {
             'module_name': 'googlesearch',
-            'find_links': ('https://github.com/praekelt/django-googlesearch/tarball/0.0.3#egg=django-googlesearch',),
+            'find_links': ('https://github.com/praekelt/django-googlesearch/tarball/0.0.4#egg=django-googlesearch',),
             'urlconf_additions': '%s/config/googlesearch_urlconf_additions.py' % SCRIPT_PATH,
         },
         'django-likes': {
