@@ -9,4 +9,5 @@ Changelog
 -----
 #. Added dummy base template to project app.
 #. Added manifest for project app.
+#. Default Profile model now inherits from AbstractProfileBase resolving #11. 
 
