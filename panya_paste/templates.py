@@ -44,7 +44,7 @@ APP_CONFIG = {
         },
         'django-registration': {
             'module_name': 'registration', 
-            'find_links': ('https://github.com/downloads/praekelt/eggs/django_registration-0.8_alpha_1-py2.6.egg#egg=django-registration',),
+            'find_links': ('http://github.com/downloads/praekelt/public-eggs/django_registration-0.8_alpha_1-py2.6.egg#egg=django-registration',),
         },
         'django-richcomments': {
             'module_name': 'richcomments',

@@ -1,9 +1,9 @@
 Changelog
 =========
 
-0.0.7
+0.0.9
 -----
-#. Set Cheetah version to 2.4.2.1 and above.
+#. Corrected django-registration find link
 
 0.0.8
 -----
@@ -11,3 +11,6 @@ Changelog
 #. Added manifest for project app.
 #. Default Profile model now inherits from AbstractProfileBase resolving #11. 
 
+0.0.7
+-----
+#. Set Cheetah version to 2.4.2.1 and above.
