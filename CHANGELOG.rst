@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.1.0
+-----
+#. Now uses Django 1.2.3.
+#. Creates uploads media folder.
+
 0.0.9
 -----
 #. Corrected django-registration find link
