@@ -4,3 +4,4 @@ include LICENSE
 include README.rst
 recursive-include panya_paste/config *
 recursive-include panya_paste/templates *
+prune .placeholder
