@@ -19,7 +19,7 @@ eggs=
 # Django instances
 [$project]
 recipe = djangorecipe
-version = 1.2.1
+version = 1.2.3
 project = $project
 projectegg = $project
 settings = settings
@@ -27,7 +27,7 @@ eggs = \${buildout:eggs}
 
 [${project}-staging]
 recipe = djangorecipe
-version = 1.2.1
+version = 1.2.3
 project = $project
 projectegg = $project
 settings = settings_staging
