@@ -1,0 +1,7 @@
+[buildout]
+extends=buildout.cfg
+project-name=${project}_staging
+server-name=$hostname_staging
+
+[django]
+settings=staging_settings

@@ -1,0 +1,7 @@
+[buildout]
+extends=buildout.cfg
+project-name=${project}
+server-name=$hostname_prd
+
+[django]
+settings=settings

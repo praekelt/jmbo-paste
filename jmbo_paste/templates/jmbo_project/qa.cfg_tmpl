@@ -1,0 +1,7 @@
+[buildout]
+extends=buildout.cfg
+project-name=${project}_qa
+server-name=$hostname_qa
+
+[django]
+settings=qa_settings
