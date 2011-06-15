@@ -1,0 +1,6 @@
+[program:${name}.uwsgi]
+command=${buildout:bin-directory}/uwsgi -x ${buildout:directory}/uwsgi/${xml}
+user=${user}
+stdout_logfile=${log}
+redirect_stderr=true
+stopsignal=QUIT

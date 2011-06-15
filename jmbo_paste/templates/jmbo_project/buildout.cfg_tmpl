@@ -3,69 +3,32 @@ develop=\${buildout:directory}/src/$project/setup.py
 extensions=lovely.buildouthttp
 parts=
     $project
-    ${project}-staging
-    ${project}-fcgi
-    ${project}-staging-fcgi
-    ${project}-nginx
-    ${project}-staging-nginx
+    uwsgi
+    nginx
     media-links
+    uwsgi-supervisor
 eggs=
     $project
+server-name=$hostname_dev
 
-# Django instances
 [$project]
-recipe = djangorecipe
-version = 1.2.3
-project = $project
-projectegg = $project
-settings = settings
-eggs = \${buildout:eggs}
+recipe=djangorecipe
+projectegg=$project
+settings=dev_settings
+eggs=\${buildout:eggs}
 
-[${project}-staging]
-recipe = djangorecipe
-version = 1.2.3
-project = $project
-projectegg = $project
-settings = settings_staging
-eggs = \${buildout:eggs}
+[uwsgi]
+recipe=shaunsephton.recipe.uwsgi
+socket=127.0.0.1:7001
+module=${project}.wsgi
+eggs=\${buildout:eggs}
 
-# FCGI control scripts
-[${project}-fcgi]
-recipe = collective.recipe.template
-input = buildout_templates/fcgi.in
-output = \${buildout:directory}/fcgi/${project}.fcgi
-control-script = ${project}
-host = 127.0.0.1
-port = 7001
-
-[${project}-staging-fcgi]
-recipe = collective.recipe.template
-input = buildout_templates/fcgi.in
-output = \${buildout:directory}/fcgi/${project}-staging.fcgi
-control-script = ${project}-staging
-host = 127.0.0.1
-port = 7002
-
-# Nginx configuration files
-[${project}-nginx]
-recipe = collective.recipe.template
-input = buildout_templates/nginx.conf.in
-output = \${buildout:directory}/nginx/${project}.conf
-server-name = $hostname
-port = 80
-fcgi-host = \${${project}-fcgi:host}
-fcgi-port = \${${project}-fcgi:port}
-media-root = \${buildout:directory}/media
-
-[${project}-staging-nginx]
-recipe = collective.recipe.template
-input = buildout_templates/nginx.conf.in
-output = \${buildout:directory}/nginx/${project}-staging.conf
-server-name = $hostname_staging
-port = 80
-fcgi-host = \${${project}-staging-fcgi:host}
-fcgi-port = \${${project}-staging-fcgi:port}
-media-root = \${buildout:directory}/media
+[nginx]
+recipe=collective.recipe.template
+input=buildout_templates/nginx.conf
+output=\${buildout:directory}/nginx/${project}.conf
+port=80
+media-root=\${buildout:directory}/media
 
 [media-links]
 recipe = svetlyak40wt.recipe.symlinks
@@ -82,3 +45,12 @@ files =
         #end if
     #end if
 #end for
+
+[uwsgi-supervisor]
+recipe=collective.recipe.template
+input=buildout_templates/supervisor.uwsgi
+output=\${buildout:directory}/supervisor/\${buildout:project-name}.uwsgi.conf
+name=\${buildout:project-name}
+user=www-data
+xml=uwsgi.xml
+log=\${buildout:directory}/log/uwsgi.log

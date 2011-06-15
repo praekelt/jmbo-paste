@@ -110,8 +110,10 @@ class JmboProjectTemplate(Template):
             default=''.join(
                 [choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
             ) for i in range(50)])),
-        var('hostname', 'Hostname for the primary instance', default='localhost'),
-        var('hostname_staging', 'Hostname for the staging instance', default='staging.localhost'),
+        var('hostname_prd', 'Production instance hostname', default='localhost'),
+        var('hostname_qa', 'Quality Assurance instance hostname', default='localhost'),
+        var('hostname_staging', 'Staging instance hostname', default='localhost'),
+        var('hostname_dev', 'Development instance hostname', default='localhost'),
     ]
 
     def pre(self, command, output_dir, vars):
