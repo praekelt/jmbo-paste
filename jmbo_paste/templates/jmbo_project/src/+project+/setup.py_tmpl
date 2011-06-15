@@ -20,7 +20,6 @@ setup(
 #end for
     ],
     install_requires = [
-        'jmbo',
 #for $app in $app_config
     #if $getVar($app) == 'y'
         '$app',
