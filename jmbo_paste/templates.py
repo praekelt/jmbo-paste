@@ -27,6 +27,7 @@ APP_CONFIG = {
             'middleware_classes': ('likes.middleware.SecretBallotUserIpUseragentMiddleware',),
             'urlconf_additions': '%s/config/likes_urlconf_additions.py' % SCRIPT_PATH,
             'buildout_media_links': ('django-likes://likes/media/likes',),
+            'installed_app_dependencies': ['secretballot',]
         },
         'django-preferences': {
             'module_name': 'preferences',
@@ -57,6 +58,7 @@ APP_CONFIG = {
         'jmbo': {
             'module_name': 'jmbo',
             'urlconf_additions': '%s/config/jmbo_urlconf_additions.py' % SCRIPT_PATH,
+            'installed_app_dependencies': ['category', 'photologue', 'publisher',]
         },
         'jmbo-banner': {
             'module_name': 'banner',
@@ -125,3 +127,13 @@ class JmboProjectTemplate(Template):
             if key == 'django-recaptcha' and vars[key] == 'y':
                 vars['app_config']['django-recaptcha']['public_key'] = command.challenge('Enter your Recaptcha Public Key: ', '', True)
                 vars['app_config']['django-recaptcha']['private_key'] = command.challenge('Enter your Recaptcha Private Key: ', '', True)
+
+        required_installed_apps = set()
+        for key, value in vars.items():
+            if value == 'y' and vars['app_config'].has_key(key):
+                required_installed_apps.add(vars['app_config'][key]['module_name'])
+                if vars['app_config'][key].has_key('installed_app_dependencies'):
+                    for app in vars['app_config'][key]['installed_app_dependencies']:
+                        required_installed_apps.add(app)
+
+        vars['required_installed_apps'] = required_installed_apps
