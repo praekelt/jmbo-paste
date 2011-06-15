@@ -110,7 +110,6 @@ TEMPLATE_DIRS = (
 ROOT_URLCONF = '${project}.urls'
 
 INSTALLED_APPS = (
-    #django apps
     'django.contrib.auth',
     'django.contrib.comments',
     'django.contrib.contenttypes',
@@ -118,25 +117,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-
-    # project
+    
     '$project',
-
-    # jmbo required apps
-    'category',
-    'photologue',
-
-    # elective apps
-#for $app in $app_config
-    #if $getVar($app) == 'y'
-        #if 'module_name' in $app_config[$app].keys
-    '$app_config[$app]['module_name']',
-        #end if
-    #end if
+#for $app in $required_installed_apps
+    '$app',
 #end for
-#if $getVar('django-likes', 'n') == 'y'
-    'secretballot'
-#end if
 )
 
 #if $getVar('django-profile', 'n') == 'y'
