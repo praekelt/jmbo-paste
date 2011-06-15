@@ -111,8 +111,8 @@ class JmboProjectTemplate(Template):
                 [choice('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
             ) for i in range(50)])),
         var('hostname_prd', 'Production instance hostname', default='localhost'),
-        var('hostname_qa', 'Quality Assurance instance hostname', default='localhost'),
         var('hostname_staging', 'Staging instance hostname', default='localhost'),
+        var('hostname_qa', 'Quality Assurance instance hostname', default='localhost'),
         var('hostname_dev', 'Development instance hostname', default='localhost'),
     ]
 
