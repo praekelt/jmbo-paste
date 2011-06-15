@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='panya-paste',
-    version='0.1.0',
-    description='Python Paste templates creating Panya buildout environments.',
+    name='jmbo-paste',
+    version='0.1.1',
+    description='Python Paste templates creating Jmbo Buildout environments.',
     long_description = open('README.rst', 'r').read() + open('AUTHORS.rst', 'r').read() + open('CHANGELOG.rst', 'r').read(),
     author='Praekelt Foundation',
     author_email='dev@praekelt.com',
     license='BSD',
-    url='http://github.com/praekelt/panya-paste',
+    url='http://www.jmbo.org',
     packages = find_packages(),
     install_requires = [
         'Cheetah>=2.4.2.1',
@@ -18,7 +18,7 @@ setup(
     include_package_data=True,
     entry_points = """
         [paste.paster_create_template]
-        panya_project=panya_paste.templates:PanyaProjectTemplate
+        jmbo_project=jmbo_paste.templates:JmboProjectTemplate
     """,
     classifiers = [
         "Programming Language :: Python",

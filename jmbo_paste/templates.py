@@ -54,55 +54,55 @@ APP_CONFIG = {
         'django-section': {
             'module_name': 'section',
         },
-        'panya': {
-            'module_name': 'panya',
-            'urlconf_additions': '%s/config/panya_urlconf_additions.py' % SCRIPT_PATH,
+        'jmbo': {
+            'module_name': 'jmbo',
+            'urlconf_additions': '%s/config/jmbo_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-banner': {
+        'jmbo-banner': {
             'module_name': 'banner',
         },
-        'panya-calendar': {
+        'jmbo-calendar': {
             'module_name': 'cal', 
         },
-        'panya-chart': {
+        'jmbo-chart': {
             'module_name': 'chart', 
             'urlconf_additions': '%s/config/chart_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-competition': {
+        'jmbo-competition': {
             'module_name': 'competition',
             'urlconf_additions': '%s/config/competition_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-contact': {
+        'jmbo-contact': {
             'module_name': 'contact',
             'urlconf_additions': '%s/config/contact_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-event': {
+        'jmbo-event': {
             'module_name': 'event', 
             'urlconf_additions': '%s/config/event_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-gallery': {
+        'jmbo-gallery': {
             'module_name': 'gallery',
             'urlconf_additions': '%s/config/gallery_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-music': {
+        'jmbo-music': {
             'module_name': 'music', 
             'urlconf_additions': '%s/config/music_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-post': {
+        'jmbo-post': {
             'module_name': 'post', 
         },
-        'panya-show': {
+        'jmbo-show': {
             'module_name': 'show', 
             'urlconf_additions': '%s/config/show_urlconf_additions.py' % SCRIPT_PATH,
         },
-        'panya-social': {
+        'jmbo-social': {
             'module_name': 'social', 
         },
     }
 
-class PanyaProjectTemplate(Template):
-    _template_dir = 'templates/panya_project'
-    summary = 'Creates a buildout providing a Django instance and Django project with selected Panya apps installed.'
+class JmboProjectTemplate(Template):
+    _template_dir = 'templates/jmbo_project'
+    summary = 'Creates a Buildout providing a Django instance and Django project with selected Jmbo apps installed.'
     use_cheetah = True
 
     vars = [
