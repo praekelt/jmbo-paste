@@ -1,17 +1,18 @@
 [buildout]
 develop=\${buildout:directory}/src/$project/setup.py
-extensions=lovely.buildouthttp
 parts=
-    $project
+    django
     uwsgi
     nginx
     media-links
     uwsgi-supervisor
 eggs=
     $project
+project-name=${project}_dev
 server-name=$hostname_dev
+newest=false
 
-[$project]
+[django]
 recipe=djangorecipe
 projectegg=$project
 settings=dev_settings
@@ -34,8 +35,8 @@ media-root=\${buildout:directory}/media
 recipe = svetlyak40wt.recipe.symlinks
 path = \${buildout:directory}/media
 files =
-    \${buildout:parts-directory}/$project/django/contrib/admin/media admin
     \${buildout:directory}/src/$project/$project/media/$project
+    django://django/contrib/admin/media admin
 #for $app in $app_config
     #if $getVar($app) == 'y'
         #if 'buildout_media_links' in $app_config[$app].keys
