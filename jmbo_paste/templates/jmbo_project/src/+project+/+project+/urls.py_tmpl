@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -9,11 +10,13 @@ urlpatterns = patterns('',
     # Example:
     # url(r'^$', 'myapp.views.myview', name='view_name'),
     
-    #if $getVar('django-preferences', 'n') == 'y'
-    # django-preferences urls
-    (r'^admin/', include('preferences.urls')),
-    #end if
-
+    # app url includes
+    #for $app in $required_installed_apps
+        #if 'urlconf_additions' in $app_config[$app].keys
+            #include $app_config[$app]['urlconf_additions']
+        #end if
+    #end for
+    
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -21,18 +24,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     
-    # app url includes
-    #for $app in $app_config
-        #if $getVar($app) == 'y'
-            #if 'urlconf_additions' in $app_config[$app].keys
-                #include $app_config[$app]['urlconf_additions']
-            #end if
-        #end if
-    #end for
 )
 
-if settings.DEBUG:
-    urlpatterns += patterns('',
-    (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
-    )
+urlpatterns += staticfiles_urlpatterns()

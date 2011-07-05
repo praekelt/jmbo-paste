@@ -1,16 +1,17 @@
 [buildout]
 develop=\${buildout:directory}/src/$project/setup.py
+eggs=$project
+extensions=buildout.eggtractor
+newest=false
+project-name=${project}_dev
+server-name=$hostname_dev
+tractor-src-directory=parts
 parts=
     django
     uwsgi
     nginx
     media-links
     uwsgi-supervisor
-eggs=
-    $project
-project-name=${project}_dev
-server-name=$hostname_dev
-newest=false
 
 [django]
 recipe=djangorecipe

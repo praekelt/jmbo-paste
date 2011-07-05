@@ -31,6 +31,7 @@ APP_CONFIG = {
         },
         'django-preferences': {
             'module_name': 'preferences',
+            'urlconf_additions': '%s/config/preferences_urlconf_additions' % SCRIPT_PATH,
             'template_context_processor_additions': ('preferences.context_processors.preferences_cp',),
         },
         'django-profile': { 
@@ -54,6 +55,9 @@ APP_CONFIG = {
         },
         'django-section': {
             'module_name': 'section',
+        },
+        'django-snippetscream': {
+            'module_name': 'snippetscream',
         },
         'jmbo': {
             'module_name': 'jmbo',
