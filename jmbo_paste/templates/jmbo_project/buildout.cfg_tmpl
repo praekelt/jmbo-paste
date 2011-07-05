@@ -37,7 +37,6 @@ recipe = svetlyak40wt.recipe.symlinks
 path = \${buildout:directory}/media
 files =
     \${buildout:directory}/src/$project/$project/media/$project
-    django://django/contrib/admin/media admin
 #for $app in $app_config
     #if $getVar($app) == 'y'
         #if 'buildout_media_links' in $app_config[$app].keys
