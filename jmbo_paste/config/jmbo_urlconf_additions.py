@@ -1,1 +1,1 @@
-    (r'^content/', include('jmbo.urls')),
+    (r'^$', include('jmbo.urls')),
