@@ -1,9 +1,7 @@
 from django.db import models
 
-#for $app in $app_config
-    #if $getVar($app) == 'y'
-        #if 'model_additions' in $app_config[$app].keys
-            #include $app_config[$app]['model_additions']
-        #end if
+#for $app in $required_apps
+    #if 'model_additions' in $required_apps[$app].keys
+        #include $required_apps[$app]['model_additions']
     #end if
 #end for

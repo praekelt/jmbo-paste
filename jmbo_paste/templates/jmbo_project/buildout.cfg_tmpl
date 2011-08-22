@@ -37,13 +37,11 @@ recipe = svetlyak40wt.recipe.symlinks
 path = \${buildout:directory}/media
 files =
     \${buildout:directory}/src/$project/$project/media/$project
-#for $app in $app_config
-    #if $getVar($app) == 'y'
-        #if 'buildout_media_links' in $app_config[$app].keys
-            #for $link in $app_config[$app]['buildout_media_links']
-    $link
-            #end for
-        #end if
+#for $app in $required_apps
+    #if 'buildout_media_links' in $required_apps[$app].keys
+        #for $link in $required_apps[$app]['buildout_media_links']
+            $link
+        #end for
     #end if
 #end for
 

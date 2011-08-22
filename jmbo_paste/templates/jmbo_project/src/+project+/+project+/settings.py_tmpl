@@ -67,13 +67,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-#for $app in $app_config
-    #if $getVar($app) == 'y'
-        #if 'middleware_classes' in $app_config[$app].keys
-            #for $middleware in $app_config[$app]['middleware_classes']
+#for $app in $required_apps
+    #if 'middleware_classes' in $required_apps[$app].keys
+        #for $middleware in $required_apps[$app]['middleware_classes']
     '$middleware',
-            #end for
-        #end if
+        #end for
     #end if
 #end for
 )
@@ -89,13 +87,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.static",
     "django.core.context_processors.request",
-#for $app in $app_config
-    #if $getVar($app) == 'y'
-        #if 'template_context_processor_additions' in $app_config[$app].keys
-            #for $template_context_processor in $app_config[$app]['template_context_processor_additions']
+#for $app in $required_apps
+    #if 'template_context_processor_additions' in $required_apps[$app].keys
+        #for $template_context_processor in $required_apps[$app]['template_context_processor_additions']
     '$template_context_processor',
-            #end for
-        #end if
+        #end for
     #end if
 #end for
 )
@@ -125,8 +121,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     
     '$project',
-#for $app in $required_installed_apps
-    '$app',
+#for $app in $required_apps
+    '$required_apps[$app]['module_name']',
 #end for
 )
 
@@ -152,8 +148,8 @@ ROOT_GIZMOCONF = '${project}.gizmos'
 
 #if $getVar('django-recaptcha', 'n') == 'y'
 # Your ReCaptcha provided public key.
-RECAPTCHA_PUBLIC_KEY = '$app_config['django-recaptcha']['public_key']'
+RECAPTCHA_PUBLIC_KEY = '$required_apps['django-recaptcha']['public_key']'
 
 # Your ReCaptcha provided private key.
-RECAPTCHA_PRIVATE_KEY = '$app_config['django-recaptcha']['private_key']'
+RECAPTCHA_PRIVATE_KEY = '$required_apps['django-recaptcha']['private_key']'
 #end if

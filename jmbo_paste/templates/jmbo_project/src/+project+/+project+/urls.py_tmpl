@@ -11,11 +11,12 @@ urlpatterns = patterns('',
     # url(r'^$', 'myapp.views.myview', name='view_name'),
     
     # app url includes
-    #for $app in $required_installed_apps
-        #if 'urlconf_additions' in $app_config[$app].keys
-            #include $app_config[$app]['urlconf_additions']
-        #end if
-    #end for
+
+#for $app in $required_apps
+    #if 'urlconf_additions' in $required_apps[$app].keys
+        #'$app',
+    #end if
+#end for
     
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
     # to INSTALLED_APPS to enable admin documentation:
