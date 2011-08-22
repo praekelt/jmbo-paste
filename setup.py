@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='jmbo-paste',
-    version='0.1.3',
+    version='0.1.4',
     description='Python Paste templates creating Jmbo Buildout environments.',
     long_description = open('README.rst', 'r').read() + open('AUTHORS.rst', 'r').read() + open('CHANGELOG.rst', 'r').read(),
     author='Praekelt Foundation',
     author_email='dev@praekelt.com',
     license='BSD',
-    url='http://www.jmbo.org',
+    url='https://github.com/praekelt/jmbo-paste',
     packages = find_packages(),
     install_requires = [
         'Cheetah>=2.4.2.1',
