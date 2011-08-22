@@ -11,12 +11,19 @@ APP_CONFIG = {
             'module_name': 'ckeditor',
             'urlconf_additions': '%s/ckeditor_urlconf_additions.py' % SCRIPT_PATH,
             'buildout_media_links': ('django-ckeditor://ckeditor/media/ckeditor',),
+            'settings': (
+                "# URL prefix for ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash.\nCKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'",
+                "# Specify absolute path to your ckeditor media upload directory.\n# Make sure you have write permissions for the path, i.e/home/media/media.lawrence.com/uploads/\nCKEDITOR_UPLOAD_PATH = '%s/media/uploads/' % BUILDOUT_PATH",
+            ),
         },
         'django-generate': {
             'module_name': 'generate',
         },
         'django-gizmo': {
             'module_name': 'gizmo', 
+            'settings': (
+                "# Module containing gizmo configuration\nROOT_GIZMOCONF = '%s.gizmos' % PROJECT_MODULE",
+            ),
         },
         'django-googlesearch': {
             'module_name': 'googlesearch',
@@ -42,6 +49,9 @@ APP_CONFIG = {
         'django-profile': { 
             'module_name': 'profile', 
             'model_additions': '%s/profile_model_additions.py' % SCRIPT_PATH,
+            'settings': (
+                "# The site-specific user profile model used by this site.\nAUTH_PROFILE_MODULE = '%s.Profile' % PROJECT_MODULE",
+            )
         },
         'django-publisher': {
             'module_name': 'publisher',

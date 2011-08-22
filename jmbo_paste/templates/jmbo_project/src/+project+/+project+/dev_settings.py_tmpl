@@ -1,7 +1,10 @@
 from ${project}.settings import *
 
+CREATE_DEFAULT_SUPERUSER = True
+
 DEBUG = True
 TEMPLATE_DEBUG = True
 
 DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 DATABASES['default']['NAME'] = DATABASES['default']['NAME'] + '_dev'
+

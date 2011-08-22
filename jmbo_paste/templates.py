@@ -52,10 +52,14 @@ class JmboProjectTemplate(Template):
         for app in required_apps_set:
             required_apps[app] = APP_CONFIG[app]
        
+        
         vars['required_apps'] = required_apps
         
-        for key in vars['required_apps']:
+        for key in required_apps.keys():
             if key == 'django-recaptcha':
-                vars['required_apps']['django-recaptcha']['public_key'] = command.challenge('Enter your Recaptcha Public Key: ', '', True)
-                vars['required_apps']['django-recaptcha']['private_key'] = command.challenge('Enter your Recaptcha Private Key: ', '', True)
+                public_key = command.challenge('Enter your Recaptcha Public Key: ', '', True)
+                private_key = command.challenge('Enter your Recaptcha Private Key: ', '', True)
+                vars['required_apps']['django-recaptcha']['settings'] = ("# Your ReCaptcha provided public key.\nRECAPTCHA_PUBLIC_KEY = '%s'\n\n# Your ReCaptcha provided private key.\nRECAPTCHA_PRIVATE_KEY = '%s'" % (public_key, private_key),)
+
+        
 

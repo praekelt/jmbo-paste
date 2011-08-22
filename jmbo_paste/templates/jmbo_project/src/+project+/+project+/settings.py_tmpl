@@ -6,6 +6,8 @@ from os import path
 SCRIPT_PATH =  path.abspath(path.dirname(__file__))
 BUILDOUT_PATH =  path.split(path.abspath(path.join(path.dirname(sys.argv[0]))))[0]
 
+PROJECT_MODULE = '${project}'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -126,26 +128,6 @@ INSTALLED_APPS = (
 #end for
 )
 
-#if $getVar('django-profile', 'n') == 'y'
-# The site-specific user profile model used by this site.
-AUTH_PROFILE_MODULE = '${project}.Profile'
-#end if
-
-#if $getVar('django-ckeditor', 'n') == 'y'
-# URL prefix for ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash.
-CKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'
-
-# Specify absolute path to your ckeditor media upload directory. 
-# Make sure you have write permissions for the path, i.e/home/media/media.lawrence.com/uploads/
-CKEDITOR_UPLOAD_PATH = "%s/media/uploads/" % BUILDOUT_PATH
-
-#end if
-
-#if $getVar('django-gizmo', 'n') == 'y'
-# Module containing gizmo configuration
-ROOT_GIZMOCONF = '${project}.gizmos'
-#end if
-
 #if $getVar('django-recaptcha', 'n') == 'y'
 # Your ReCaptcha provided public key.
 RECAPTCHA_PUBLIC_KEY = '$required_apps['django-recaptcha']['public_key']'
@@ -153,3 +135,12 @@ RECAPTCHA_PUBLIC_KEY = '$required_apps['django-recaptcha']['public_key']'
 # Your ReCaptcha provided private key.
 RECAPTCHA_PRIVATE_KEY = '$required_apps['django-recaptcha']['private_key']'
 #end if
+
+#for $app in $required_apps
+    #if 'settings' in $required_apps[$app].keys
+        #for $setting in $required_apps[$app]['settings']
+$setting
+
+        #end for
+    #end if
+#end for
