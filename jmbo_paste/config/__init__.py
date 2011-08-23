@@ -9,7 +9,7 @@ APP_CONFIG = {
         },
         'django-ckeditor': {
             'module_name': 'ckeditor',
-            'urlconf_additions': '%s/ckeditor_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/ckeditor_urlconf_additions' % SCRIPT_PATH,
             'buildout_media_links': ('django-ckeditor://ckeditor/media/ckeditor',),
             'settings': (
                 "# URL prefix for ckeditor JS and CSS media (not uploaded media). Make sure to use a trailing slash.\nCKEDITOR_MEDIA_PREFIX = '/media/ckeditor/'",
@@ -27,12 +27,12 @@ APP_CONFIG = {
         },
         'django-googlesearch': {
             'module_name': 'googlesearch',
-            'urlconf_additions': '%s/googlesearch_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/googlesearch_urlconf_additions' % SCRIPT_PATH,
         },
         'django-likes': {
             'module_name': 'likes',
             'middleware_classes': ('likes.middleware.SecretBallotUserIpUseragentMiddleware',),
-            'urlconf_additions': '%s/likes_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/likes_urlconf_additions' % SCRIPT_PATH,
             'buildout_media_links': ('django-likes://likes/media/likes',),
             'installed_app_dependencies': ['django-secretballot',]
         },
@@ -43,7 +43,6 @@ APP_CONFIG = {
         },
         'django-preferences': {
             'module_name': 'preferences',
-            'urlconf_additions': '%s/preferences_urlconf_additions' % SCRIPT_PATH,
             'template_context_processor_additions': ('preferences.context_processors.preferences_cp',),
         },
         'django-profile': { 
@@ -66,7 +65,7 @@ APP_CONFIG = {
         },
         'django-richcomments': {
             'module_name': 'richcomments',
-            'urlconf_additions': '%s/richcomments_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/richcomments_urlconf_additions' % SCRIPT_PATH,
             'buildout_media_links': ('django-richcomments://richcomments/media/richcomments',),
         },
         'django-secretballot': {
@@ -81,7 +80,7 @@ APP_CONFIG = {
         },
         'jmbo': {
             'module_name': 'jmbo',
-            'urlconf_additions': '%s/jmbo_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/jmbo_urlconf_additions' % SCRIPT_PATH,
             'installed_app_dependencies': ['django-category', 'django-photologue', 'django-publisher',]
         },
         'jmbo-banner': {
@@ -92,34 +91,34 @@ APP_CONFIG = {
         },
         'jmbo-chart': {
             'module_name': 'chart', 
-            'urlconf_additions': '%s/chart_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/chart_urlconf_additions' % SCRIPT_PATH,
         },
         'jmbo-competition': {
             'module_name': 'competition',
-            'urlconf_additions': '%s/competition_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/competition_urlconf_additions' % SCRIPT_PATH,
         },
         'jmbo-contact': {
             'module_name': 'contact',
-            'urlconf_additions': '%s/contact_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/contact_urlconf_additions' % SCRIPT_PATH,
         },
         'jmbo-event': {
             'module_name': 'event', 
-            'urlconf_additions': '%s/event_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/event_urlconf_additions' % SCRIPT_PATH,
         },
         'jmbo-gallery': {
             'module_name': 'gallery',
-            'urlconf_additions': '%s/gallery_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/gallery_urlconf_additions' % SCRIPT_PATH,
         },
         'jmbo-music': {
             'module_name': 'music', 
-            'urlconf_additions': '%s/music_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/music_urlconf_additions' % SCRIPT_PATH,
         },
         'jmbo-post': {
             'module_name': 'post', 
         },
         'jmbo-show': {
             'module_name': 'show', 
-            'urlconf_additions': '%s/show_urlconf_additions.py' % SCRIPT_PATH,
+            'urlconf_additions': '%s/show_urlconf_additions' % SCRIPT_PATH,
         },
         'jmbo-social': {
             'module_name': 'social', 

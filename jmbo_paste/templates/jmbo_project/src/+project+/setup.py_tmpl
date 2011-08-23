@@ -19,7 +19,8 @@ setup(
     ],
     install_requires = [
 #for $app in $required_apps
-    '$app',
+        '$app',
 #end for
+        'django-debug-toolbar',
     ],
 )
