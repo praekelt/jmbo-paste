@@ -5,6 +5,12 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 admin.autodiscover()
 
+try:
+    import object_tools
+    object_tools.autodiscover()
+except ImportError:
+    pass
+
 urlpatterns = patterns('',
 #for $app in $required_apps
     #if 'urlconf_additions' in $required_apps[$app].keys
