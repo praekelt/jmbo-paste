@@ -16,6 +16,10 @@ APP_CONFIG = {
                 "# Specify absolute path to your ckeditor media upload directory.\n# Make sure you have write permissions for the path, i.e/home/media/media.lawrence.com/uploads/\nCKEDITOR_UPLOAD_PATH = '%s/media/uploads/' % BUILDOUT_PATH",
             ),
         },
+        'django-export': {
+            'module_name': 'export',
+            'installed_app_dependencies': ['django-object-tools',]
+        },
         'django-generate': {
             'module_name': 'generate',
         },
@@ -35,6 +39,10 @@ APP_CONFIG = {
             'urlconf_additions': '%s/likes_urlconf_additions' % SCRIPT_PATH,
             'buildout_media_links': ('django-likes://likes/media/likes',),
             'installed_app_dependencies': ['django-secretballot',]
+        },
+        'django-object-tools': {
+            'module_name': 'object_tools',
+            'urlconf_additions': '%s/object_tools_urlconf_additions' % SCRIPT_PATH,
         },
         'django-photologue': {
             'module_name': 'photologue', 
