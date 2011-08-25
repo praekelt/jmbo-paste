@@ -113,6 +113,10 @@ TEMPLATE_DIRS = (
 ROOT_URLCONF = '${project}.urls'
 
 INSTALLED_APPS = (
+    '$project',
+#for $app in $required_apps
+    '$required_apps[$app]['module_name']',
+#end for
     'django.contrib.auth',
     'django.contrib.comments',
     'django.contrib.contenttypes',
@@ -121,11 +125,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    
-    '$project',
-#for $app in $required_apps
-    '$required_apps[$app]['module_name']',
-#end for
 )
 
 #if $getVar('django-recaptcha', 'n') == 'y'
