@@ -89,7 +89,6 @@ APP_CONFIG = {
         },
         'jmbo': {
             'module_name': 'jmbo',
-            'urlconf_additions': '%s/jmbo_urlconf_additions' % SCRIPT_PATH,
             'installed_app_dependencies': ['django-category', 'django-photologue', 'django-publisher',]
         },
         'jmbo-banner': {

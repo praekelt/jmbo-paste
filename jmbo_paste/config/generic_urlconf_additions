@@ -1,1 +1,1 @@
-    (r'^$', include('generic.urls')),
+    (r'^', include('generic.urls')),
