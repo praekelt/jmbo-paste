@@ -101,6 +101,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
+#for $app in $required_apps
+    #if 'template_loaders_additions' in $required_apps[$app].keys
+        #for $template_loader in $required_apps[$app]['template_loaders_additions']
+    '$template_loader',
+        #end for
+    #end if
+#end for
 )
 
 TEMPLATE_DIRS = (
