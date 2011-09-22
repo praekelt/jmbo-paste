@@ -53,13 +53,14 @@ APP_CONFIG = {
             'module_name': 'preferences',
             'template_context_processor_additions': ('preferences.context_processors.preferences_cp',),
         },
-        'django-profile': { 
-            'module_name': 'profile', 
-            'model_additions': '%s/profile_model_additions.py' % SCRIPT_PATH,
-            'settings': (
-                "# The site-specific user profile model used by this site.\nAUTH_PROFILE_MODULE = '%s.Profile' % PROJECT_MODULE",
-            )
-        },
+        # XXX: django-profile namespace needs to be updated to avoid confilct with python-profile package. 
+        #'django-profile': { 
+        #    'module_name': 'profile', 
+        #    'model_additions': '%s/profile_model_additions.py' % SCRIPT_PATH,
+        #    'settings': (
+        #        "# The site-specific user profile model used by this site.\nAUTH_PROFILE_MODULE = '%s.Profile' % PROJECT_MODULE",
+        #    )
+        #},
         'django-publisher': {
             'module_name': 'publisher',
             'confirm': False,
@@ -116,6 +117,13 @@ APP_CONFIG = {
         'jmbo-gallery': {
             'module_name': 'gallery',
             'urlconf_additions': '%s/gallery_urlconf_additions' % SCRIPT_PATH,
+        },
+        'jmbo-generic': {
+            'module_name': 'generic',
+            'urlconf_additions': '%s/generic_urlconf_additions' % SCRIPT_PATH,
+            'installed_app_dependencies': ['django-preferences', 'django-snippetscream',],
+            'template_loaders_additions': ('generic.loaders.TypeLoader',),
+            'settings': ('TEMPLATE_TYPE = "basic"',),
         },
         'jmbo-music': {
             'module_name': 'music', 
