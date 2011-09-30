@@ -12,11 +12,11 @@ jmbo-paste simplifies the process of creating a Jmbo development environment.
 Dependencies
 ------------
 
-Jmbo requires `Python <http://www.python.org>`_, the Python development library as well as `Python Setuptools<http://pypi.python.org/pypi/setuptools>`_. These can be installed as follows::
+Jmbo requires `Python <http://www.python.org>`_, the Python development library as well as `Python Setuptools <http://pypi.python.org/pypi/setuptools>`_. These can be installed as follows::
 
     $ sudo apt-get install python python-dev python-setuptools
 
-jmbo-paste utilizes `Python Paste<http://pythonpaste.org/>`_ to create project boilerplate and structure for you, which you can install as follows::
+jmbo-paste utilizes `Python Paste <http://pythonpaste.org/>`_ to create project boilerplate and structure for you, which you can install as follows::
     
     $ easy_install paste
 
@@ -61,32 +61,58 @@ Follow the prompts to configure your project. For the purposes of this example p
         staging.cfg
 
 That's quite a lot of stuff, here's a description of each file:
-``bootstrap.py``: The `Buildout<http://pypi.python.org/pypi/zc.buildout>`_ file used to initially boostrap the Buildout environment. (You won't ever have to change this file so you can safely ignore it.)
-``buildout.cfg``: The base Buildout configuration used by default and extended by other configurations. If you're unfamiliar with Buildout I suggest you have a look at Jacob Kaplan-Moss' excellent `primer<http://jacobian.org/writing/django-apps-with-buildout/>`_.
+``bootstrap.py``: The `Buildout <http://pypi.python.org/pypi/zc.buildout>`_ file used to initially boostrap the Buildout environment. (You won't ever have to change this file so you can safely ignore it.)
+
+``buildout.cfg``: The base Buildout configuration used by default and extended by other configurations. If you're unfamiliar with Buildout I suggest you have a look at Jacob Kaplan-Moss' excellent `primer <http://jacobian.org/writing/django-apps-with-buildout/>`_.
+
 ``buildout_templates/nginx.conf``: Template file used by Buildout to create a `Nginx <http://wiki.nginx.org/>`_ configrations for your project. You should never have to edit this by hand, rather update ``buildout.cfg`` for your specific customizations.
-``buildout_templates/supervisor.uwsgi``: Template file used by Buildout to create a `Supervisor<http://supervisord.org/>`_ control configuration for `uWSGI<http://projects.unbit.it/uwsgi/>`_. You should never have to edit this by hand, rather update ``buildout.cfg`` for your specific customizations.
+
+``buildout_templates/supervisor.uwsgi``: Template file used by Buildout to create a `Supervisor <http://supervisord.org/>`_ control configuration for `uWSGI <http://projects.unbit.it/uwsgi/>`_. You should never have to edit this by hand, rather update ``buildout.cfg`` for your specific customizations.
+
 ``log/``: Empty path in which various Nginx and uWSGI logs will be stored.
+
 ``media/``: Media path from which all static content is served. During buildout various paths like the Django admin static media path and your project specific media path is symlinked here.
+
 ``media/uploads/``: Media path in which CKEditor uploads will be stored.
+
 ``production.cfg``: The production Buildout configuration extended from ``buildout.cfg`` used to create a production environment.
+
 ``qa.cfg``: The qa Buildout configuration extended from ``buildout.cfg`` used to create a quality assurance environment.
+
 ``src/``: Source path in which all your project specific code is stored.
+
 ``src/mysite/``: Root project package path, used to store packaging code.
+
 ``src/mysite/MANIFEST``: Python egg package manifest, which specifies which files to include/exclude when packaging for distribution. In most instances you can savely ignore this file.
+
 ``src/mysite/mysite/``: Project module path. All project specific module code is stored here.
+
 ``src/mysite/mysite/dev_settings.py``: Django project settings used for the default development environment. Extended from ``src/mysite/mysite/settings.py``.
-``src/mysite/mysite/gizmos.py``: `django-gizmo<http://pypi.python.org/pypi/django-gizmo>`_ declarations for your project.
+
+``src/mysite/mysite/gizmos.py``: `django-gizmo <http://pypi.python.org/pypi/django-gizmo>`_ declarations for your project.
+
 ``src/mysite/mysite/__init__.py``: Empty file indicating that the directory is a Python package.
+
 ``src/mysite/mysite/media/``: Root project media path.
+
 ``src/mysite/mysite/media/mysite``: Media path in which all your project specific static media should be stored.
-``src/mysite/mysite/models.py``: `Django ORM model<https://docs.djangoproject.com/en/dev/topics/db/models/>`_ declarations for your project.
+
+``src/mysite/mysite/models.py``: `Django ORM model <https://docs.djangoproject.com/en/dev/topics/db/models/>`_ declarations for your project.
+
 ``src/mysite/mysite/qa_settings.py``: Django project settings used for a quality assurance environment. Extended from ``src/mysite/mysite/settings.py``.
+
 ``src/mysite/mysite/settings.py``: Base Django project settings used for a production environment.
+
 ``src/mysite/mysite/staging_settings.py``: Django project settings used for a staging environment. Extended from ``src/mysite/mysite/settings.py``.
+
 ``src/mysite/mysite/templates/``: Root project templates path.
-``src/mysite/mysite/templates/base.html``: Base template from which all other templates extend. See `Django's docs on templating<https://docs.djangoproject.com/en/dev/topics/templates/>`_ for more info.
-``src/mysite/mysite/urls.py``: URL declarations for your project. See `Django's docs on the URL dispatcher<https://docs.djangoproject.com/en/dev/topics/http/urls/>`_ for more info.
+
+``src/mysite/mysite/templates/base.html``: Base template from which all other templates extend. See `Django's docs on templating <https://docs.djangoproject.com/en/dev/topics/templates/>`_ for more info.
+
+``src/mysite/mysite/urls.py``: URL declarations for your project. See `Django's docs on the URL dispatcher <https://docs.djangoproject.com/en/dev/topics/http/urls/>`_ for more info.
+
 ``src/mysite/README.rst``: Readme doc in which you can document your project. Included when packaging for distribution. In most instances you can savely ignore this file.
+
 ``staging.cfg``: The staging Buildout configuration extended from ``buildout.cfg`` used to create a staging environment.
 
 This might seem rather complicated but the only directory you really need to concern yourself with is ``src/mysite/mysite`` which follows the normal Django project layout. The rest of the files are used to create a sandboxed Buildout environment and to assist when you want to eventually deploy your project. You can treat them as boilerplate and safely ignore them for the most part.
@@ -94,7 +120,7 @@ This might seem rather complicated but the only directory you really need to con
 Running a Buildout
 ------------------
 
-Once your project structure has been created it's time to run a buildout. `Buildout<http://pypi.python.org/pypi/zc.buildout>`_ creates a sandboxed environment containing all the various packages required by your project.
+Once your project structure has been created it's time to run a buildout. `Buildout <http://pypi.python.org/pypi/zc.buildout>`_ creates a sandboxed environment containing all the various packages required by your project.
 
 To run a buildout you first have to bootstrap it. Bootstrapping involves downloading various files required by Buildout to, well, buildout. You only have to perform a bootstrap once on initial project setup after which Buildout's requirements will be met. Bootstrap as follows::
 
@@ -122,6 +148,6 @@ After which you can finally start the development server as follows::
 
     $ ./bin/django runserver
 
-Now that the server's running visit `http://localhost:8000<http://localhost:8000>`_ using your Web browser. You'll see the generic Jmbo application homepage!
+Now that the server's running visit `http://localhost:8000 <http://localhost:8000>`_ using your Web browser. You'll see the generic Jmbo application homepage!
 
 And that's it, you've just created a Jmbo development environment. 
