@@ -46,14 +46,20 @@ class JmboProjectTemplate(Template):
                 if APP_CONFIG[key].has_key('installed_app_dependencies'):
                     for app in APP_CONFIG[key]['installed_app_dependencies']:
                         required_apps_set.add(app)
+                if APP_CONFIG[key].has_key('transparent_app_dependencies'):
+                    for app in APP_CONFIG[key]['transparent_app_dependencies']:
+                        transparent_apps_set.add(app)
 
         # Pass app config as required_apps var.
         required_apps = {}
+        setup_py_apps = {}
         for app in required_apps_set:
             required_apps[app] = APP_CONFIG[app]
-       
-        
+            if not APP_CONFIG[app].get('skip_setup_py', False):
+                setup_py_apps[app] = APP_CONFIG[app]
+                           
         vars['required_apps'] = required_apps
+        vars['setup_py_apps'] = setup_py_apps
         
         for key in required_apps.keys():
             if key == 'django-recaptcha':

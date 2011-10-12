@@ -45,9 +45,9 @@ APP_CONFIG = {
             'urlconf_additions': '%s/object_tools_urlconf_additions' % SCRIPT_PATH,
         },
         'django-photologue': {
-            'module_name': 'photologue', 
-            'find_links': ('http://github.com/praekelt/django-photologue/tarball/2.6.praekelt#egg=django-photologue-2.6.praekelt',),
-            'confirm': False,
+            'module_name': 'xphotologue', 
+        #    'confirm': False,
+            'skip_setup_py': True,
         },
         'django-preferences': {
             'module_name': 'preferences',
@@ -89,7 +89,7 @@ APP_CONFIG = {
         },
         'jmbo': {
             'module_name': 'jmbo',
-            'installed_app_dependencies': ['django-category', 'django-photologue', 'django-publisher',]
+            'installed_app_dependencies': ['django-category', 'django-publisher',],
         },
         'jmbo-banner': {
             'module_name': 'banner',
