@@ -45,8 +45,7 @@ APP_CONFIG = {
             'urlconf_additions': '%s/object_tools_urlconf_additions' % SCRIPT_PATH,
         },
         'django-photologue': {
-            'module_name': 'xphotologue', 
-        #    'confirm': False,
+            'module_name': 'photologue',         
             'skip_setup_py': True,
         },
         'django-preferences': {
@@ -117,16 +116,21 @@ APP_CONFIG = {
             'module_name': 'gallery',
             'urlconf_additions': '%s/gallery_urlconf_additions' % SCRIPT_PATH,
         },
-        'jmbo-generic': {
-            'module_name': 'generic',
-            'urlconf_additions': '%s/generic_urlconf_additions' % SCRIPT_PATH,
+        'jmbo-foundry': {
+            'module_name': 'foundry',
+            'middleware_classes': ('foundry.middleware.AgeGateway', 'foundry.middleware.VerboseRequestMeta'),
+            'urlconf_additions': '%s/foundry_urlconf_additions' % SCRIPT_PATH,
             'installed_app_dependencies': ['django-preferences', 'django-snippetscream',],
-            'template_loaders_additions': ('generic.loaders.TypeLoader',),
+            'template_loaders_additions': ('foundry.loaders.TypeLoader',),
             'settings': ('TEMPLATE_TYPE = "basic"',),
         },
         'jmbo-music': {
             'module_name': 'music', 
             'urlconf_additions': '%s/music_urlconf_additions' % SCRIPT_PATH,
+            'settings': (
+                "# API key if you are going to make use of LastFM\nLASTFM_API_KEY = ''",
+            ),
+
         },
         'jmbo-post': {
             'module_name': 'post', 

@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
         #end for
     #end if
 #end for
+    'django.middleware.transaction.TransactionMiddleware'
 )
 
 # A tuple of callables that are used to populate the context in RequestContext. 
