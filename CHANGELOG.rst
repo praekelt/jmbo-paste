@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.1.8 (unreleased)
+------------------
+#. Remove photologue from setup.py since it causes version conflicts
+
 0.1.6 (2011-09-22)
 ------------------
 #. Added jmbo-generic app.

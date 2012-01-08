@@ -5,6 +5,7 @@ SCRIPT_PATH =  path.abspath(path.dirname(__file__))
 APP_CONFIG = {
         'django-category': {
             'module_name': 'category',
+            'installed_app_dependencies': ['south'],
             'confirm': False,
         },
         'django-ckeditor': {
@@ -38,7 +39,8 @@ APP_CONFIG = {
             'middleware_classes': ('likes.middleware.SecretBallotUserIpUseragentMiddleware',),
             'urlconf_additions': '%s/likes_urlconf_additions' % SCRIPT_PATH,
             'buildout_media_links': ('django-likes://likes/media/likes',),
-            'installed_app_dependencies': ['django-secretballot',]
+            'installed_app_dependencies': ['django-secretballot',],
+            'skip_setup_py': True,
         },
         'django-object-tools': {
             'module_name': 'object_tools',
@@ -88,7 +90,7 @@ APP_CONFIG = {
         },
         'jmbo': {
             'module_name': 'jmbo',
-            'installed_app_dependencies': ['django-category', 'django-publisher',],
+            'installed_app_dependencies': ['django-category', 'django-publisher', 'django-likes'],
         },
         'jmbo-banner': {
             'module_name': 'banner',
@@ -120,7 +122,7 @@ APP_CONFIG = {
             'module_name': 'foundry',
             'middleware_classes': ('foundry.middleware.AgeGateway', 'foundry.middleware.VerboseRequestMeta'),
             'urlconf_additions': '%s/foundry_urlconf_additions' % SCRIPT_PATH,
-            'installed_app_dependencies': ['django-preferences', 'django-snippetscream',],
+            'installed_app_dependencies': ['django-preferences', 'django-snippetscream','south'],
             'template_loaders_additions': ('foundry.loaders.TypeLoader',),
             'settings': ('TEMPLATE_TYPE = "basic"',),
         },
